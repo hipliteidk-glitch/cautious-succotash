@@ -12,12 +12,11 @@ jobs:
         with:
           java-version: 17
           distribution: 'temurin'
-      - name: Build APK
-        run: |
-          echo "No Android project found yet — replace this with your actual build command"
-          mkdir -p app/build/outputs/apk/debug
-          echo "dummy APK" > app/build/outputs/apk/debug/app-debug.apk
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build debug APK
+        run: ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/*.apk
