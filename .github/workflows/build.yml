@@ -11,6 +11,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 17
+          distribution: 'temurin'
       - name: Build APK
         run: |
           echo "No Android project found yet — replace this with your actual build command"
